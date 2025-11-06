@@ -1,0 +1,76 @@
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8 gap-4">
+    <div>
+      <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">My Analyses</h1>
+      <p class="text-sm sm:text-base text-gray-600 mt-1 sm:mt-2">View all your investment analyses</p>
+    </div>
+    <%= link_to new_analysis_path,
+        class: "bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:shadow-xl transition-all inline-flex items-center justify-center" do %>
+      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+      </svg>
+      New Analysis
+    <% end %>
+  </div>
+
+  <% if @analyses.any? %>
+    <div class="grid gap-6">
+      <% @analyses.each do |analysis| %>
+        <%= link_to analysis_path(analysis), class: "block" do %>
+          <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6 hover-lift">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <div class="flex items-center space-x-3 mb-2">
+                  <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    <%= analysis.investor.name.split.map(&:first).join %>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-900">
+                      <%= analysis.stock.ticker %>
+                      <% if analysis.stock.name %>
+                        <span class="text-sm font-normal text-gray-600">
+                          - <%= analysis.stock.name %>
+                        </span>
+                      <% end %>
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                      by <%= analysis.investor.name %>
+                    </p>
+                  </div>
+                </div>
+
+                <p class="text-gray-700 mb-3 line-clamp-2">
+                  <%= analysis.question %>
+                </p>
+
+                <div class="flex items-center space-x-4 text-sm text-gray-500">
+                  <span><%= analysis.created_at.strftime("%b %d, %Y") %></span>
+                  <span>•</span>
+                  <span class="<%= analysis.completed? ? 'text-green-600' : analysis.failed? ? 'text-red-600' : 'text-yellow-600' %>">
+                    <%= analysis.status.titleize %>
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex-shrink-0 ml-4">
+                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="bg-white rounded-lg shadow-md p-12 text-center">
+      <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+      </svg>
+      <h3 class="text-xl font-semibold text-gray-900 mb-2">No analyses yet</h3>
+      <p class="text-gray-600 mb-6">Get started by creating your first investment analysis</p>
+      <%= link_to "Create Your First Analysis", new_analysis_path,
+          class: "inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg" %>
+    </div>
+  <% end %>
+</div>
