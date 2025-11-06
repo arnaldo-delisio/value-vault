@@ -45,10 +45,6 @@ RUN bundle exec bootsnap precompile app/ lib/
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
-# Set up Python virtual environment and install yfinance
-RUN python3 -m venv /rails/venv && \
-    /rails/venv/bin/pip install --no-cache-dir yfinance
-
 
 
 
@@ -58,6 +54,10 @@ FROM base
 # Copy built artifacts: gems, application
 COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
 COPY --from=build /rails /rails
+
+# Set up Python virtual environment and install yfinance in final stage
+RUN python3 -m venv /rails/venv && \
+    /rails/venv/bin/pip install --no-cache-dir yfinance
 
 # Run and own only the runtime files as a non-root user for security
 RUN groupadd --system --gid 1000 rails && \
