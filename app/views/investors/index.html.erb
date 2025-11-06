@@ -1,0 +1,145 @@
+<div class="max-w-6xl mx-auto">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">Investment Advisors</h1>
+    <p class="text-lg text-gray-600">
+      Choose from 5 legendary investors, each with their own proven frameworks and methodologies
+    </p>
+  </div>
+
+  <div class="grid gap-8 md:grid-cols-2">
+    <% @investors.each do |investor| %>
+      <div class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition-shadow">
+        <div class="flex items-start space-x-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-2xl flex-shrink-0">
+            <%= investor.name.split.map(&:first).join %>
+          </div>
+          <div class="flex-1">
+            <h2 class="text-2xl font-bold text-gray-900 mb-1"><%= investor.name %></h2>
+            <p class="text-sm font-medium text-indigo-600">
+              <% case investor.persona %>
+              <% when "munger" %>
+                Kill Switches & Mental Models
+              <% when "buffett" %>
+                Economic Moat & Intrinsic Value
+              <% when "lynch" %>
+                Growth at Reasonable Price (GARP)
+              <% when "graham" %>
+                Quantitative Value Investing
+              <% when "dalio" %>
+                Economic Machine & Risk Parity
+              <% end %>
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Framework Highlights</h3>
+          <ul class="space-y-2">
+            <% case investor.persona %>
+            <% when "munger" %>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">6 quantitative kill switches for instant rejection</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">Mental models from 4 disciplines</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">Focus: Quality & moats</span>
+              </li>
+            <% when "buffett" %>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">Owner earnings calculation</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">10-year DCF with 9% discount rate</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">Minimum 30% margin of safety</span>
+              </li>
+            <% when "lynch" %>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">PEG ratio < 1.0 for undervalued stocks</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">6 company categories framework</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">Focus: Growth quality & story</span>
+              </li>
+            <% when "graham" %>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">7 strict quantitative criteria</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">Pure mathematical approach</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">Focus: Margin of safety</span>
+              </li>
+            <% when "dalio" %>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">4 economic environments analysis</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">Risk parity portfolio construction</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-indigo-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700 text-sm">Focus: Economic cycles & correlation</span>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+        <%= link_to new_analysis_path(investor_id: investor.id),
+            class: "block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-colors" do %>
+          Analyze with <%= investor.name.split.first %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
