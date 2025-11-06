@@ -325,15 +325,13 @@ end
 
 puts "✅ Created #{Investor.count} investors"
 
-# Create a demo user for testing
-if Rails.env.development?
-  puts "🌱 Creating demo user..."
-  User.find_or_create_by!(email: "REDACTED") do |user|
-    user.password = "REDACTED"
-    user.password_confirmation = "REDACTED"
-    user.tier = :free
-  end
-  puts "✅ Demo user created (REDACTED / REDACTED)"
+# Create a demo user for testing (all environments)
+puts "🌱 Creating demo user..."
+User.find_or_create_by!(email: "REDACTED") do |user|
+  user.password = "REDACTED"
+  user.password_confirmation = "REDACTED"
+  user.tier = :free
 end
+puts "✅ Demo user created (REDACTED / REDACTED)"
 
 puts "🎉 Seeding complete!"
