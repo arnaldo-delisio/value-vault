@@ -62,12 +62,7 @@ Each investor uses their real-world frameworks with quantitative criteria:
 
 ## 🚀 Quick Start
 
-### For Testing (Enrica & Zipline Team)
-
-**Demo Account:**
-- **Email**: `REDACTED`
-- **Password**: `REDACTED`
-- **Limit**: 10 free analyses per day
+### For Testing
 
 **Try These Examples:**
 1. **Ticker**: `AAPL` | **Investor**: Charlie Munger | **Question**: "Is Apple a good investment today?"
