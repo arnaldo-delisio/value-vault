@@ -334,40 +334,6 @@ value-vault/
 
 **Note:** This project is currently demo-ready. Future development depends on feedback and validation.
 
----
-
-## 🌐 Future Strategy (Post-Job Secured)
-
-### Open Source + Hosted Model
-
-**Open Source (Self-Hosted):**
-- MIT License on GitHub
-- Users provide their own Anthropic API key
-- Free for individuals and companies
-- Community contributions welcome
-
-**Hosted Version (SaaS):**
-- Managed hosting on Railway/Heroku
-- No API key required
-- Tier pricing:
-  - **Free**: 10 analyses/day, single investor
-  - **Pro** ($29/month): Unlimited analyses, all investors, portfolio features
-  - **Team** ($99/month): Multi-user, shared portfolios, API access
-
-**Examples of this model:**
-- Ghost (blogging)
-- Plausible Analytics
-- Cal.com
-- Supabase
-
-**Timeline:**
-- **Now**: Focus on job search (priority #1)
-- **After job secured**: Deploy hosted version, gather feedback
-- **Month 1-3**: Validate market interest
-- **Month 3-6**: Decide on scaling vs side project
-
----
-
 ## 📄 License
 
 MIT License - Open source and available for self-hosting.
